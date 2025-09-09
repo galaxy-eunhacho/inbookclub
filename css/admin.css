@@ -1,0 +1,364 @@
+.admin-login {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.password-input {
+    padding: 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.password-input:focus {
+    border-color: #007bff;
+}
+
+.admin-panel {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.admin-header h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.admin-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.book-form-section, .book-list-section {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+}
+
+.book-form-section h3, .book-list-section h3 {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.book-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-row.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-row label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+    padding: 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+    border-color: #007bff;
+}
+
+.form-row textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+}
+
+.form-row input[type="file"] {
+    padding: 8px;
+    border: 2px dashed #ddd;
+    background: #f8f9fa;
+    cursor: pointer;
+}
+
+.submit-btn {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+}
+
+.book-search {
+    margin-bottom: 20px;
+}
+
+.admin-book-list {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.admin-book-item {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.2s;
+}
+
+.admin-book-item:hover {
+    border-color: #007bff;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);
+}
+
+.admin-book-cover {
+    width: 80px;
+    height: 105px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-book-info {
+    flex: 1;
+}
+
+.admin-book-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.admin-book-author {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 5px;
+}
+
+.admin-book-salon {
+    font-size: 12px;
+    color: #666;
+    background: #f0f0f0;
+    padding: 4px 8px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.admin-book-rating {
+    font-size: 13px;
+    color: #f39c12;
+}
+
+.admin-book-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.edit-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.edit-btn:hover {
+    background: #0056b3;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}
+
+/* 모달 스타일 (review.css와 동일하지만 중복 정의) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    animation: slideIn 0.3s;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-content h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.current-cover {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.current-cover img {
+    width: 100px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+    grid-column: 1 / -1;
+    margin-top: 20px;
+}
+
+.modal-buttons .submit-btn {
+    flex: 1;
+    margin-top: 0;
+}
+
+.modal-buttons .delete-btn {
+    flex: 1;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+    .admin-sections {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-panel {
+        padding: 20px;
+    }
+    
+    .book-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-book-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .admin-book-actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .modal-content {
+        margin: 10% auto;
+        padding: 20px;
+        width: 95%;
+    }
+    
+    .modal-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .book-form-section, .book-list-section {
+        padding: 20px;
+    }
+    
+    .admin-book-cover {
+        width: 60px;
+        height: 80px;
+    }
+}

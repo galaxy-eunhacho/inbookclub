@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 페이지 - 인북클럽</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="index.html">
+                    <img src="inbook-logo.png" alt="인북클럽 로고" class="logo">
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link">인북 운영진 ↗</a>
+                <a href="review.html" class="nav-link">별점 리뷰 ↗</a>
+                <a href="admin.html" class="nav-link admin-link active">⬜ ⌄</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h1 class="page-title">관리자 페이지</h1>
+            
+            <div class="admin-login" id="admin-login">
+                <div class="login-form">
+                    <input type="password" id="admin-password" placeholder="관리자 패스워드" class="password-input">
+                    <button id="admin-login-btn" class="login-btn">로그인</button>
+                </div>
+            </div>
+
+            <div class="admin-panel" id="admin-panel" style="display: none;">
+                <div class="admin-header">
+                    <h2>책 관리</h2>
+                    <button id="admin-logout" class="logout-btn">로그아웃</button>
+                </div>
+
+                <div class="admin-sections">
+                    <section class="book-form-section">
+                        <h3>새 책 등록</h3>
+                        <form id="book-form" class="book-form">
+                            <div class="form-row">
+                                <label>표지 이미지</label>
+                                <input type="file" id="book-cover" accept="image/jpeg,image/jpg,image/jfif">
+                            </div>
+                            
+                            <div class="form-row">
+                                <label>책제목</label>
+                                <input type="text" id="book-title" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <label>저자</label>
+                                <input type="text" id="book-author" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <label>출판연도</label>
+                                <input type="number" id="book-year" min="1900" max="2030">
+                            </div>
+                            
+                            <div class="form-row">
+                                <label>ISBN</label>
+                                <input type="text" id="book-isbn">
+                            </div>
+                            
+                            <div class="form-row">
+                                <label>가격</label>
+                                <input type="number" id="book-price" min="0">
+                            </div>
+                            
+                            <div class="form-row">
+                                <label>살롱</label>
+                                <select id="book-salon" required>
+                                    <option value="">선택하세요</option>
+                                    <option value="문학살롱">문학살롱</option>
+                                    <option value="자기경영살롱">자기경영살롱</option>
+                                    <option value="그림책살롱">그림책살롱</option>
+                                    <option value="고전살롱">고전살롱</option>
+                                    <option value="소울살롱">소울살롱</option>
+                                    <option value="인문살롱">인문살롱</option>
+                                    <option value="인라이팅">인라이팅</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-row">
+                                <label>주제태그</label>
+                                <input type="text" id="book-topics" placeholder="쉼표로 구분하여 입력">
+                            </div>
+                            
+                            <div class="form-row">
+                                <label>기간</label>
+                                <input type="text" id="book-period" placeholder="예: 2024년 3분기">
+                            </div>
+                            
+                            <div class="form-row full-width">
+                                <label>3줄 소개</label>
+                                <textarea id="book-description" rows="3" placeholder="책에 대한 간단한 소개를 3줄로 작성해주세요"></textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <label>구매 링크</label>
+                                <input type="url" id="book-link" placeholder="https://">
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">책 등록</button>
+                        </form>
+                    </section>
+
+                    <section class="book-list-section">
+                        <h3>등록된 책 목록</h3>
+                        <div class="book-search">
+                            <input type="text" id="admin-search" placeholder="책제목, 저자로 검색" class="search-input">
+                        </div>
+                        <div class="admin-book-list" id="admin-book-list">
+                            <div class="loading">책 목록을 불러오는 중...</div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 책 수정 모달 -->
+    <div class="modal" id="edit-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>책 정보 수정</h3>
+            <form id="edit-book-form" class="book-form">
+                <div class="form-row">
+                    <label>표지 이미지</label>
+                    <input type="file" id="edit-book-cover" accept="image/jpeg,image/jpg,image/jfif">
+                    <div class="current-cover" id="current-cover"></div>
+                </div>
+                
+                <div class="form-row">
+                    <label>책제목</label>
+                    <input type="text" id="edit-book-title" required>
+                </div>
+                
+                <div class="form-row">
+                    <label>저자</label>
+                    <input type="text" id="edit-book-author" required>
+                </div>
+                
+                <div class="form-row">
+                    <label>출판연도</label>
+                    <input type="number" id="edit-book-year" min="1900" max="2030">
+                </div>
+                
+                <div class="form-row">
+                    <label>ISBN</label>
+                    <input type="text" id="edit-book-isbn">
+                </div>
+                
+                <div class="form-row">
+                    <label>가격</label>
+                    <input type="number" id="edit-book-price" min="0">
+                </div>
+                
+                <div class="form-row">
+                    <label>살롱</label>
+                    <select id="edit-book-salon" required>
+                        <option value="문학살롱">문학살롱</option>
+                        <option value="자기경영살롱">자기경영살롱</option>
+                        <option value="그림책살롱">그림책살롱</option>
+                        <option value="고전살롱">고전살롱</option>
+                        <option value="소울살롱">소울살롱</option>
+                        <option value="인문살롱">인문살롱</option>
+                        <option value="인라이팅">인라이팅</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <label>주제태그</label>
+                    <input type="text" id="edit-book-topics">
+                </div>
+                
+                <div class="form-row">
+                    <label>기간</label>
+                    <input type="text" id="edit-book-period">
+                </div>
+                
+                <div class="form-row full-width">
+                    <label>3줄 소개</label>
+                    <textarea id="edit-book-description" rows="3"></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <label>구매 링크</label>
+                    <input type="url" id="edit-book-link">
+                </div>
+                
+                <div class="modal-buttons">
+                    <button type="submit" class="submit-btn">수정 완료</button>
+                    <button type="button" id="delete-book" class="delete-btn">삭제</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 인북클럽. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인북클럽 - 함께 읽은 책들</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <img src="inbook-logo.png" alt="인북클럽 로고" class="logo">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="책제목, 저자, 살롱명으로 검색" class="search-input">
+                    <button id="search-btn" class="search-btn">🔍</button>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link">인북 운영진 ↗</a>
+                <a href="review.html" class="nav-link">별점 리뷰 ↗</a>
+                <a href="admin.html" class="nav-link admin-link">⬜ ⌄</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h1 class="main-headline">인북에서 함께 읽은 책들 속으로 초대합니다!</h1>
+            
+            <section class="salon-tags">
+                <button class="salon-tag" data-salon="문학살롱">#문학살롱</button>
+                <button class="salon-tag" data-salon="고전살롱">#고전살롱</button>
+                <button class="salon-tag" data-salon="자기경영살롱">#자기경영살롱</button>
+                <button class="salon-tag" data-salon="인문살롱">#인문살롱</button>
+                <button class="salon-tag" data-salon="그림책살롱">#그림책살롱</button>
+                <button class="salon-tag" data-salon="소울살롱">#소울살롱</button>
+                <button class="salon-tag" data-salon="인라이팅">#인라이팅</button>
+            </section>
+
+            <section class="topic-buttons">
+                <button class="topic-btn" data-topic="2025년 4분기">2025년 4분기</button>
+                <button class="topic-btn" data-topic="2025년 3분기">2025년 3분기</button>
+                <button class="topic-btn" data-topic="2025년 2분기">2025년 2분기</button>
+                <button class="topic-btn" data-topic="2025년 1분기">2025년 1분기</button>
+                <button class="topic-btn" data-topic="2024년 4분기">2024년 4분기</button>
+                <button class="topic-btn" data-topic="2024년 3분기">2024년 3분기</button>
+                <button class="topic-btn" data-topic="2024년 2분기">2024년 2분기</button>
+                <button class="topic-btn" data-topic="별점 리뷰 많은">별점 리뷰 많은</button>
+                <button class="topic-btn" data-topic="책으로 떠나는 여행">책으로 떠나는 여행</button>
+                <button class="topic-btn" data-topic="봄날의 산책 같은">봄날의 산책 같은</button>
+                <button class="topic-btn" data-topic="자신감을 채워주는">자신감을 채워주는</button>
+                <button class="topic-btn" data-topic="베고 잘까 읽을까">베고 잘까 읽을까</button>
+                <button class="topic-btn" data-topic="깊은 사유의 시간">깊은 사유의 시간</button>
+                <button class="topic-btn" data-topic="마음의 평화">마음의 평화</button>
+                <button class="topic-btn" data-topic="삶의 지혜">삶의 지혜</button>
+                <button class="topic-btn" data-topic="사랑과 관계">사랑과 관계</button>
+                <button class="topic-btn" data-topic="미래를 그리다">미래를 그리다</button>
+                <button class="topic-btn" data-topic="과거와 현재">과거와 현재</button>
+                <button class="topic-btn" data-topic="감정의 이해">감정의 이해</button>
+                <button class="topic-btn" data-topic="창작의 영감">창작의 영감</button>
+                <button class="topic-btn" data-topic="사회를 보는 눈">사회를 보는 눈</button>
+                <button class="topic-btn" data-topic="자연과 함께">자연과 함께</button>
+                <button class="topic-btn" data-topic="어린이의 마음">어린이의 마음</button>
+                <button class="topic-btn" data-topic="죽음과 삶">죽음과 삶</button>
+                <button class="topic-btn" data-topic="변화와 성장">변화와 성장</button>
+            </section>
+
+            <section class="filters">
+                <button id="clear-filter" class="clear-btn">전체 보기</button>
+                <div class="active-filters" id="active-filters"></div>
+            </section>
+
+            <section class="book-grid" id="book-grid">
+                <div class="loading">책 목록을 불러오는 중...</div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 인북클럽. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

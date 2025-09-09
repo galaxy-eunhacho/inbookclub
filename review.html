@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별점 리뷰 - 인북클럽</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/review.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="index.html">
+                    <img src="inbook-logo.png" alt="인북클럽 로고" class="logo">
+                </a>
+                <div class="search-container">
+                    <input type="text" id="review-search" placeholder="책제목, 저자로 검색" class="search-input">
+                    <button id="review-search-btn" class="search-btn">🔍</button>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link">인북 운영진 ↗</a>
+                <a href="review.html" class="nav-link active">별점 리뷰 ↗</a>
+                <a href="admin.html" class="nav-link admin-link">⬜ ⌄</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h1 class="page-title">별점 리뷰</h1>
+            
+            <div class="login-section" id="login-section">
+                <h2>살롱 선택</h2>
+                <div class="salon-login">
+                    <select id="salon-select" class="salon-select">
+                        <option value="">살롱을 선택해주세요</option>
+                        <option value="문학살롱">문학살롱</option>
+                        <option value="자기경영살롱">자기경영살롱</option>
+                        <option value="그림책살롱">그림책살롱</option>
+                        <option value="고전살롱">고전살롱</option>
+                        <option value="소울살롱">소울살롱</option>
+                        <option value="인문살롱">인문살롱</option>
+                        <option value="인라이팅">인라이팅</option>
+                    </select>
+                    <input type="password" id="salon-password" placeholder="살롱 패스워드" class="password-input">
+                    <button id="login-btn" class="login-btn">로그인</button>
+                </div>
+            </div>
+
+            <div class="review-section" id="review-section" style="display: none;">
+                <div class="logged-in-info">
+                    <span id="logged-salon"></span> 멤버로 로그인됨
+                    <button id="logout-btn" class="logout-btn">로그아웃</button>
+                </div>
+
+                <div class="book-list" id="book-list">
+                    <div class="loading">책 목록을 불러오는 중...</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 리뷰 작성 모달 -->
+    <div class="modal" id="review-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-book-info" id="modal-book-info"></div>
+            
+            <div class="rating-section">
+                <h3>별점 주기</h3>
+                <div class="star-rating" id="star-rating">
+                    <span class="star" data-rating="0.5">☆</span>
+                    <span class="star" data-rating="1">☆</span>
+                    <span class="star" data-rating="1.5">☆</span>
+                    <span class="star" data-rating="2">☆</span>
+                    <span class="star" data-rating="2.5">☆</span>
+                    <span class="star" data-rating="3">☆</span>
+                    <span class="star" data-rating="3.5">☆</span>
+                    <span class="star" data-rating="4">☆</span>
+                    <span class="star" data-rating="4.5">☆</span>
+                    <span class="star" data-rating="5">☆</span>
+                </div>
+                <div class="rating-display" id="rating-display">0.0</div>
+            </div>
+
+            <div class="review-form">
+                <input type="text" id="reviewer-name" placeholder="닉네임 (선택사항)" class="review-input">
+                <textarea id="review-text" placeholder="한줄 리뷰 (선택사항)" class="review-textarea" maxlength="100"></textarea>
+                <div class="char-count"><span id="char-count">0</span>/100</div>
+                <button id="submit-review" class="submit-btn">리뷰 등록</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 인북클럽. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/review.js"></script>
+</body>
+</html>
